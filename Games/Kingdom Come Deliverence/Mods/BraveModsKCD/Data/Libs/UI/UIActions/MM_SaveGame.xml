@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Graph Group="MM_PagesShared">
+  <Nodes>
+    <Node Id="1" Class="UI:Action:Start" pos="-540,-310,0" flags="0">
+      <Inputs UseAsState="1" />
+    </Node>
+    <Node Id="33" Name="Setup_page" Class="_commentbox" pos="-550,-350,0" flags="0">
+      <Inputs TextSize="1" DisplayFilled="1" DisplayBox="1" SortPriority="16" />
+      <ResizeBorder X="0" Y="0" Width="880" Height="880" />
+      <NodeSize Width="880" Height="907.39063" />
+      <Color r="0.5" g="0.5" b="0.5" />
+      <Author author="" />
+    </Node>
+    <Node Id="41" Name="Handle_events" Class="_commentbox" pos="350,-230,0" flags="0">
+      <Inputs TextSize="1" DisplayFilled="1" DisplayBox="1" SortPriority="16" />
+      <ResizeBorder X="0" Y="0" Width="1900" Height="760" />
+      <NodeSize Width="1900" Height="787.39063" />
+      <Color r="0.5" g="0.5" b="0.5" />
+      <Author author="" />
+    </Node>
+    <Node Id="100" Class="UI:Events:MainMenu:OnButton" pos="380,440,0" flags="0">
+      <Inputs instanceID="-1" Port="0" Idx="SG_Back" />
+    </Node>
+    <Node Id="106" Class="UI:Action:End" pos="610,440,0" flags="0">
+      <Inputs UseAsState="1" Args="" />
+    </Node>
+    <Node Id="128" Class="UI:Functions:MainMenu:SetTitleBox" pos="60,-170,0" flags="0">
+      <Inputs instanceID="-1" header="logo" />
+    </Node>
+    <Node Id="146" Class="UI:Functions:MainMenu:AddButton" pos="-250,70,0" flags="0">
+      <Inputs instanceID="-1" id="SG_Back" containerIndex="1" uiText="@ui_back" actionType="back" tooltip="" disable="0" sound="" />
+    </Node>
+    <Node Id="161" Class="UI:Functions:MainMenu:AddLoadButton" pos="-140,320,0" flags="0">
+      <Inputs instanceID="-1" buttonId="0" containerIndex="0" data="" tooltip="@ui_OverwriteSaveTT" disable="0" sound="" />
+    </Node>
+    <Node Id="626" Class="UI:Functions:MainMenu:ClearAll" pos="-250,-170,0" flags="0">
+      <Inputs instanceID="-1" useLastSelect="0" />
+    </Node>
+    <Node Id="713" Class="UI:Functions:MainMenu:SetContainer" pos="-250,-80,0" flags="0">
+      <Inputs instanceID="-1" containerIndex="0" ButtonXPos="1500" ButtonYPos="390" MaxButtons="5" />
+    </Node>
+    <Node Id="717" Class="UI:Functions:MainMenu:AddConfirmation" pos="1750,20,0" flags="0">
+      <Inputs instanceID="-1" confirmationId="MM_GameSavedConfirm" uiQuestion="@ui_GameSaved" uiAnswer0="@ui_Ok" uiAnswer1="" defaultSelect0="1" tooltip0="" tooltip1="" actionBackOnAnswer="-1" sound0="" sound1="" />
+    </Node>
+    <Node Id="727" Class="UI:Events:MainMenu:OnLoadButton" pos="510,30,0" flags="0">
+      <Inputs instanceID="-1" Port="-1" Idx="" />
+    </Node>
+    <Node Id="734" Class="UI:Functions:MainMenu:AddConfirmation" pos="850,30,0" flags="0">
+      <Inputs instanceID="-1" confirmationId="OVERWRITE_SAVE_SLOT" uiQuestion="@ui_OverwritteSaveConfirm" uiAnswer0="@ui_Yes" uiAnswer1="@ui_No" defaultSelect0="0" tooltip0="" tooltip1="" actionBackOnAnswer="1" sound0="" sound1="" />
+    </Node>
+    <Node Id="834" Class="UI:Functions:SaveLoad:UpdateSavedGames" pos="-540,-230,0" flags="0">
+      <Inputs />
+    </Node>
+    <Node Id="874" Class="UI:Events:MainMenu:OnConfirm" pos="620,280,0" flags="0">
+      <Inputs instanceID="-1" Port="0" Idx="OVERWRITE_SAVE_SLOT" />
+    </Node>
+    <Node Id="886" Class="UI:Action:End" pos="2070,270,0" flags="0">
+      <Inputs UseAsState="1" Args="" />
+    </Node>
+    <Node Id="887" Class="UI:Events:MainMenu:OnConfirm" pos="1750,270,0" flags="0">
+      <Inputs instanceID="-1" Port="0" Idx="MM_GameSavedConfirm" />
+    </Node>
+    <Node Id="894" Class="UI:Events:SaveLoad:OnGetSavedGamesItem" pos="-500,320,0" flags="0">
+      <Inputs Port="-1" Idx="" />
+    </Node>
+    <Node Id="895" Class="UI:Functions:SaveLoad:SaveGame" pos="50,70,0" flags="0">
+      <Inputs SaveType="2" OverwriteSaveId="-1" UsePotion="0" />
+    </Node>
+    <Node Id="896" Class="UI:Functions:SaveLoad:SaveGame" pos="1320,280,0" flags="0">
+      <Inputs SaveType="2" OverwriteSaveId="-1" UsePotion="0" />
+    </Node>
+    <Node Id="898" Class="Logic:Once" pos="-390,70,0" flags="0" InHideMask="127" OutHideMask="1">
+      <Inputs />
+    </Node>
+    <Node Id="899" Class="UI:Functions:MainMenu:ClearAll" pos="1000,280,0" flags="0">
+      <Inputs instanceID="-1" useLastSelect="0" />
+    </Node>
+    <Node Id="900" Class="UI:Events:SaveLoad:OnGameSaveFinished" pos="1410,20,0" flags="0">
+      <Inputs Port="-1" Idx="" />
+    </Node>
+    <Node Id="933" Class="Logic:Signal" pos="-380,648,0" flags="0">
+      <Inputs Id="ChangeProfile" />
+    </Node>
+    <Node Id="934" Class="UI:Action:End" pos="-120,648,0" flags="0">
+      <Inputs UseAsState="1" Args="" />
+    </Node>
+  </Nodes>
+  <Edges>
+    <Edge nodeIn="834" nodeOut="1" portIn="send" portOut="StartAction" enabled="1" />
+    <Edge nodeIn="106" nodeOut="100" portIn="EndAction" portOut="onEvent" enabled="1" />
+    <Edge nodeIn="713" nodeOut="626" portIn="Call" portOut="OnCall" enabled="1" />
+    <Edge nodeIn="128" nodeOut="713" portIn="Call" portOut="OnCall" enabled="1" />
+    <Edge nodeIn="895" nodeOut="713" portIn="send" portOut="OnCall" enabled="1" />
+    <Edge nodeIn="734" nodeOut="727" portIn="instanceID" portOut="instanceID" enabled="1" />
+    <Edge nodeIn="734" nodeOut="727" portIn="Call" portOut="onEvent" enabled="1" />
+    <Edge nodeIn="896" nodeOut="727" portIn="OverwriteSaveId" portOut="saveId" enabled="1" />
+    <Edge nodeIn="626" nodeOut="834" portIn="Call" portOut="OnEvent" enabled="1" />
+    <Edge nodeIn="899" nodeOut="874" portIn="Call" portOut="onEvent" enabled="1" />
+    <Edge nodeIn="886" nodeOut="887" portIn="EndAction" portOut="onEvent" enabled="1" />
+    <Edge nodeIn="161" nodeOut="894" portIn="data" portOut="Name" enabled="1" />
+    <Edge nodeIn="161" nodeOut="894" portIn="buttonId" portOut="SaveId" enabled="1" />
+    <Edge nodeIn="161" nodeOut="894" portIn="Call" portOut="onEvent" enabled="1" />
+    <Edge nodeIn="898" nodeOut="894" portIn="Input1" portOut="onEvent" enabled="1" />
+    <Edge nodeIn="146" nodeOut="898" portIn="Call" portOut="Out" enabled="1" />
+    <Edge nodeIn="896" nodeOut="899" portIn="send" portOut="OnCall" enabled="1" />
+    <Edge nodeIn="717" nodeOut="900" portIn="Call" portOut="onEvent" enabled="1" />
+    <Edge nodeIn="934" nodeOut="933" portIn="EndAction" portOut="Out" enabled="1" />
+  </Edges>
+</Graph>
